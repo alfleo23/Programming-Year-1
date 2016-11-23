@@ -1,0 +1,27 @@
+
+public class sequence {
+
+	public static void main(String[] args) {
+		
+		sequenceMethod(3,31);
+
+	} // end of main
+	
+	
+	public static void sequenceMethod(int start, int end)
+	{
+		int i;
+		int check=0;
+		for (i=start; i<=end; i++)
+		{
+			check ++;
+			while (check != 2)
+			{
+				System.out.print(i);
+			}
+			System.out.print("*");
+			check = 0;
+		}
+	}
+
+}

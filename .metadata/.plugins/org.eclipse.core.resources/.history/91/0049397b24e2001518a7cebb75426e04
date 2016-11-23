@@ -1,0 +1,83 @@
+package stringExercise;
+
+public class Reverse 
+{
+
+	public static void main(String[] args)
+	{
+		String myString = "salas";
+		if ( isThisStringPalindrom(myString) )
+		{
+			System.out.println(myString + " is palindrom");
+		}
+		else
+		{
+			System.out.println(myString + " is NOT palindrom");
+		}
+		
+//		String returnString = Reverse (myString);
+//		System.out.println(returnString);
+//		returnString = ReverseUsingStringBuffer(myString);
+//		System.out.println (returnString);
+//		String returnString = returnAlphaLetterOnly(myString);
+//		System.out.println(returnString);
+		
+		
+		
+	} // end of main
+
+	
+	public static String Reverse (String inputString)
+	{
+		String newReverseString = new String();
+		int length = inputString.length();
+		
+		for (int i = length-1; i >= 0; i--)
+		{
+			//newReverseString = newReverseString + inputString.charAt(i);
+			newReverseString += inputString.charAt(i);
+		}
+		
+		return newReverseString;	
+	}
+	
+	public static String ReverseUsingStringBuffer(String inputString)
+	{
+		StringBuffer reverseStringBuffer = new StringBuffer( inputString );
+		int length = inputString.length();
+		
+		for (int i = length-1; i>=0; i--)
+		{
+			reverseStringBuffer.setCharAt((length-1)-i, inputString.charAt(i) );
+		}
+		
+		return reverseStringBuffer.toString();
+	}
+	
+	public static String returnAlphaLetterOnly (String inputString)
+	{
+		String returnString = new String();
+		for (int i = 0; i<inputString.length(); i++)
+		{
+			char c = inputString.charAt(i);
+			
+			if ((c >= 'a' && c <= 'z')||(c >= 'A' && c <= 'Z'))
+			{
+				returnString += c;
+			}
+			
+		}
+		return returnString;
+	}
+	
+	public static boolean isThisStringPalindrom(String inputString)
+	{
+		String stringToCheck = Reverse(inputString);
+		if ( stringToCheck.equals(inputString) )
+		{
+			return true;
+		}
+		return false;
+	}
+	
+}  // end of class

@@ -1,0 +1,31 @@
+import processing.core.*;
+
+	class Bullet
+	{
+	   PApplet sketch;
+	   int x; 
+	   int y; //changes position
+	   int speedY = -10;; //moves up screen
+	   
+	   Bullet (PApplet parent, int bulletX, int bulletY)
+	   {
+		 this.sketch = parent;
+	     this.x= bulletX;
+	     this.y= bulletY;
+	   }
+	   
+	   void moveBullet()
+	   {
+	     bulletRender();
+	     y = y + speedY;
+	   }
+	   
+	   void bulletRender()
+	   {
+	     sketch.fill (255,0,0);
+	     sketch.rect(x,y, 8, 20);
+	   }
+	     
+	} // end of class Bullet
+	
+}  // end of class Bullet

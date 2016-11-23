@@ -1,0 +1,37 @@
+package week14;
+import java.util.Scanner;
+
+
+public class DecoratingMain {
+
+	public static void main(String[] args) {
+		
+		float HRate;
+		int mainArea;
+		int mainTime;
+		float mainUnitPrice;
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Please enter Hourly Rate: ");
+		HRate = input.nextFloat();
+		
+		Job MyJob = new Job(HRate);
+		
+		System.out.println("Please enter room's Area: ");
+		mainArea= input.nextInt();
+		
+		System.out.println("Please enter room's Unit Cost: ");
+		mainUnitPrice= input.nextFloat();
+		
+		System.out.println("Please enter room's Decorating Time: ");
+		mainTime= input.nextInt();
+		
+		Room MyRoom = new Room (mainArea, mainTime, mainUnitPrice);
+		
+		float totalCost = MyJob.calculateTimeCost(MyJob, MyRoom) + MyRoom.calculateMaterialCost(MyRoom);
+		System.out.println("The job will cost " + totalCost);
+
+	} //end of main
+
+} //end of DecoratingMain class

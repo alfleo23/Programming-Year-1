@@ -1,0 +1,16 @@
+package week14;
+
+public class TiledRoom extends Room {
+
+	int grouting = area;
+	
+	TiledRoom (int area, int time, float unitPrice)
+	{
+		super(area, time, unitPrice);
+	}
+	
+	float calculateTiledRoomCost()
+	{
+		
+	}
+}

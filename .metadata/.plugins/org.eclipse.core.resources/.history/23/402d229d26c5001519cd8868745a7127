@@ -1,0 +1,19 @@
+package week14;
+
+public class Room {
+
+	int area;
+	int time;
+	float unitPrice;
+	
+void calculateMaterialCost()
+{
+	float totalMaterialCost;
+	totalMaterialCost= area * unitPrice;
+}
+	
+	
+	
+	
+	
+} //end of class Room

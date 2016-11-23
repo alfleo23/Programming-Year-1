@@ -1,0 +1,35 @@
+
+public class sequence {
+
+	public static void main(String[] args) {
+		
+		sequenceMethod(3,10);
+
+	} // end of main
+	
+	
+	public static void sequenceMethod(int start, int end)
+	{
+		int i;
+		int count=0;
+		for (i=start; i<=end; i++)
+		{
+			count++;
+			if (count < 3)
+			{
+				System.out.print(start + " ");
+				start++;
+			}
+			if (count == 3)
+			{
+				System.out.print("*" + " ");
+				start++;
+				count = 0;
+			}
+			
+			
+			
+		}
+	}
+
+}

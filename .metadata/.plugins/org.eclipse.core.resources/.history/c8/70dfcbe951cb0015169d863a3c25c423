@@ -1,0 +1,24 @@
+
+public class sequence {
+
+	public static void main(String[] args) {
+		
+		sequenceMethod(3,31);
+
+	} // end of main
+	
+	
+	public static void sequenceMethod(int start, int end)
+	{
+		int i;
+		for (i=start; i<=end; i++)
+		{
+			if (i % 2 == 0)
+			{
+				System.out.print("*");
+			}
+			System.out.print(i);
+		}
+	}
+
+}

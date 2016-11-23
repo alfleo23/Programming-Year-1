@@ -1,0 +1,20 @@
+package week14;
+
+public class Job {
+
+	float hourlyRate;
+	
+Job (float jobHourlyRate)
+{
+	this.hourlyRate= jobHourlyRate;
+}
+
+float calculateTimeCost(Job anyJob, Room anyRoom)
+{
+	float timeCost;
+	timeCost= anyJob.hourlyRate * anyRoom.time;
+	return timeCost;
+}
+
+
+} //end of class

@@ -1,0 +1,135 @@
+import processing.core.*;
+public class main extends PApplet{
+
+	Defender player;
+	Bullet bullet1;
+	Invader invader1;
+	int isBulletShot = 0;
+	int Xsize = 10;  //  numbers of invaders
+	int Ysize = 2;
+	float invaderX = 0;
+	int invaderY = 20;
+	Invader[][] grid;
+
+	public void setup()
+	{
+	  size (800,650);
+	  player = new Defender(this, 350); 
+	  
+	  grid = new Invader[Ysize][Xsize];  // initialise the array
+	  for (int i = 0; i < Ysize; i++)
+	  {
+	    for (int j = 0; j < Xsize; j++)
+	    {
+	      grid[i][j] = new Invader (this, invaderX, invaderY);  // create the array of invaders
+	      invaderX= invaderX + 50;
+	    }
+	    invaderY = invaderY + 40;
+	    invaderX = 3;
+	  }  
+	}  // end of setup
+
+
+	public void draw()
+	{
+	  background(255);
+	  player.defenderRender();    // display the defender on the screen
+	  
+	  for (int i = 0; i < Ysize; i++)
+	  {
+	   for (int j = 0; j < Xsize; j++)
+	   {
+	    if (grid[i][j] != null)
+	    {
+	      if (grid[i][j].isAtTheBorder(grid[i][j]))       //  loop to control if any alien of the array is at the borders
+	      {    
+	        for (int a = 0; a < Ysize; a++)
+	        {        
+	         for (int b = 0; b < Xsize; b++)
+	         {
+	           if (grid[a][b] != null)                        
+	           {
+	             grid[a][b].speedX = grid[a][b].speedX * -1;  //  make every not null alien in the array to change direction and go down a bit           
+	             grid[a][b].y = grid[a][b].y + 40;
+	           }      
+	          }
+	         }    
+	        }
+	    }  
+	   }
+	  }
+	         
+	  for (int i = 0; i < Ysize; i++)
+	  {
+	   for (int j = 0; j < Xsize; j++)
+	   {
+	     if (grid[i][j] != null)
+	     {
+	      grid[i][j].invaderMove();
+	      if (grid[i][j].isInvaderShot(bullet1))   // make the aliens in the array move
+	      {                                        // if they haven't been shot
+	        grid[i][j] = null;
+	        isBulletShot = 0;
+	      }
+	      
+	      if (grid[i][j] != null)
+	      {
+	        if (grid[i][j].isAtTheBottom(grid[i][j]))
+	        {
+	          fill(0);
+	          textSize(100);
+	          text("GAME OVER", 100, height/2);
+	          noLoop();
+	          //player = null;
+	          //for (int a = 0; a < Ysize; i++)
+	          //{
+	          // for (int b = 0; b < Xsize; j++)
+	          // {
+	          //   grid[a][b] = null;
+	          // }
+	          //}
+	        }
+	      }
+	      
+	   }
+	  }
+	 }
+	  
+	  if (isBulletShot == 1)
+	  {
+	   bullet1.moveBullet();   // bullet movement
+	   if (bullet1.y < 0)
+	   {
+	     isBulletShot = 0;
+	   }
+	  }
+	    
+	}  // end of void draw
+
+
+	public void keyPressed()
+	{
+	  if (keyPressed)
+	  {
+	    if (key == 'f' && isBulletShot == 0) 
+	    {
+	      bullet1 = new Bullet(this, player.x+47,player.y-15);
+	      isBulletShot = 1;
+	    }
+	  }
+	  
+	  if (key == CODED)
+	  {
+	    if (keyCode == LEFT && player.x >= 0)
+	    {
+	      player.moveDefender(-20);
+	    }
+	    else if (keyCode == RIGHT && player.x <= width - 100)     
+	    {
+	      player.moveDefender(20);
+	    }
+	  }
+	  
+	}  // end of key pressed
+	
+} // end of main

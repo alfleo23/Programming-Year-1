@@ -1,0 +1,28 @@
+
+public class sequence {
+
+	public static void main(String[] args) {
+		
+		sequenceMethod(3,30);
+
+	} // end of main
+	
+	
+	public static void sequenceMethod(int start, int end)
+	{
+		int count= 0;
+		float countModule;
+		int i;
+		for (i=start; i<=end; i++)
+		{
+			count++;
+			countModule= count % 2;
+			if (countModule == 0)
+			{
+				System.out.print("*");
+			}
+			System.out.print(i);
+		}
+	}
+
+}

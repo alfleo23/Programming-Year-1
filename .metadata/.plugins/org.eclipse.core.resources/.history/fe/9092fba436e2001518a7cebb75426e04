@@ -1,0 +1,65 @@
+import processing.core.*;
+
+class Invader
+{
+   PApplet sketch;
+   float x;
+   int y;
+   float speedX= 3; //moves across screen
+  
+  Invader(PApplet parent, float invaderX, int invaderY)
+  {
+	this.sketch = parent;
+    this.x= invaderX;
+    this.y= invaderY;
+  }
+  
+  
+  void invaderRender()
+  {
+    sketch.fill(255,0,0);
+    sketch.stroke(0);
+    sketch.ellipse(x,y,30,30);
+    sketch.fill(0,0,255);
+    sketch.stroke(0);
+    sketch.ellipse(x,y,50,15);
+  }
+  
+  void invaderMove()
+  {
+    invaderRender();
+    x= x + speedX;
+  }
+  
+  boolean isAtTheBorder(Invader invaderToControl)
+  {
+    if (invaderToControl.x > sketch.width || invaderToControl.x < 0)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  
+  boolean isInvaderShot(Bullet bullet)
+  {
+    if (isBulletShot == 1)
+    {
+      if (sketch.abs(this.x-bullet.x) < 30 && sketch.abs(this.y-bullet.y) < 10)     
+        return true;
+    }
+      return false;
+  }
+  
+  boolean isAtTheBottom(Invader invaderToControl)
+  {
+    if (invaderToControl.y > 550)
+    {
+      return true;
+    }
+    return false;
+  }
+ 
+} // end of class Invader

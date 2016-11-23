@@ -1,0 +1,11 @@
+package week14;
+
+public class TiledRoom extends Room {
+
+	int grouting;
+	
+	TiledRoom (int area, int time, float unitPrice, int givenGrouting)
+	{
+		super(area, time, unitPrice);
+	}
+}

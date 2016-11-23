@@ -1,0 +1,15 @@
+package week14;
+
+public class Job {
+
+	float hourlyRate;
+	
+
+
+void calculateCost()
+{
+	hourlyRate * Room.
+}
+
+
+} //end of class
